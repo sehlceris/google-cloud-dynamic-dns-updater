@@ -1,0 +1,7 @@
+{
+  "zone": "YOUR_ZONE_NAME",
+  "dnsNames": [
+    "mydomain.com",
+    "cloud.mydomain.com"
+  ]
+}
