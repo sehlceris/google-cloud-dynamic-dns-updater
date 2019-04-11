@@ -1,7 +1,9 @@
 {
-  "zone": "YOUR_ZONE_NAME",
+  "projectId": "smelly-cat-832298",
+  "keyFileLocation": "/home/myuser/secrets/google-cloud.json",
+  "zoneName": "YOUR_ZONE_NAME",
   "dnsNames": [
-    "mydomain.com",
-    "cloud.mydomain.com"
+    "mydomain.com.",
+    "cloud.mydomain.com."
   ]
 }

@@ -1,0 +1,23 @@
+# system/platform/IDE reserved
+.idea/
+.DS_Store
+node_modules/
+
+# local files and folders devs can use for whatever they want
+local/
+scratch/
+scratch.json
+scratch.ts
+scratch.js
+scratch.html
+
+# generated files
+dist/
+generated/
+src/generated/
+src/app/generated/
+
+# config
+config.json
+.env
+google*.json
