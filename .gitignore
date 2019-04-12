@@ -6,10 +6,7 @@ node_modules/
 # local files and folders devs can use for whatever they want
 local/
 scratch/
-scratch.json
-scratch.ts
-scratch.js
-scratch.html
+scratch*
 
 # generated files
 dist/
@@ -17,7 +14,11 @@ generated/
 src/generated/
 src/app/generated/
 
-# config
-config.json
+# config and credentials
 .env
-google*.json
+!package.json
+!package-lock.json
+!config.example.json
+*.json
+*credentials*
+*account*

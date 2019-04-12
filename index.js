@@ -2,7 +2,7 @@ const {promisify} = require('util');
 const fs = require('fs');
 
 const getExternalIP = promisify(require('external-ip')());
-const {DNS} = require('@google-cloud/dns')
+const {DNS} = require('@google-cloud/dns');
 
 async function main() {
   const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
@@ -54,7 +54,7 @@ async function main() {
   const recordsToAdd = [
     ...newRecords,
     ...modifiedRecords,
-  ];k
+  ];
 
   recordsToRemove.forEach((record) => {
     console.log(`removing record: ${record.name} | ${record.data} | ${record.metadata.ttl}`);
@@ -69,8 +69,6 @@ async function main() {
   };
 
   const change = await zone.createChange(changeConfig);
-
-  console.log(JSON.stringify(change, undefined, 2));
   console.log('change completed');
 }
 
