@@ -6,14 +6,20 @@ If you have a domain that has its name servers set to Google Cloud DNS, this scr
 
 - Only A records
 - Only Google Cloud DNS
-- Needs node.js
+- Needs node.js and npm
 - Requires you to drop a sensitive credentials file in the same directory as this script
+- I am not really going to maintain this, unless it benefits me, but you can fork or PR
+- I don't want to make this into a Docker image, but you can if you want to fork or PR
 
 ## installation
 
 ```bash
 git clone https://github.com/sehlceris/google-cloud-dynamic-dns-updater.git
-npm i
+cd google-cloud-dynamic-dns-updater
+cp config.example.json config.json
+touch google-cloud.json
+chmod 600 google-cloud.json
+npm install
 ```
 
 ## setup
@@ -41,9 +47,12 @@ npm start
 ## cron job
 
 ```bash
+mkdir -p ~/logs
 crontab -e
 ```
 
+This runs your script at 3:07AM every day and saves the log.
+
 ```
-TODO
+7 3 * * * npm start --prefix /home/donkey/apps/google-cloud-dynamic-dns-updater >> /home/donkey/logs/google-cloud-dynamic-dns-updater.log 2>&1
 ```
