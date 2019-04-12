@@ -14,6 +14,8 @@ If you have a domain that has its name servers set to Google Cloud DNS, this scr
 ## installation
 
 ```bash
+mkdir -p ~/apps
+cd ~/apps
 git clone https://github.com/sehlceris/google-cloud-dynamic-dns-updater.git
 cd google-cloud-dynamic-dns-updater
 cp config.example.json config.json
