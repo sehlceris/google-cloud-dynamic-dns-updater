@@ -18,7 +18,7 @@ mkdir -p ~/apps
 cd ~/apps
 git clone https://github.com/sehlceris/google-cloud-dynamic-dns-updater.git
 cd google-cloud-dynamic-dns-updater
-cp config.example.json config.json
+touch config.json
 touch google-cloud.json
 chmod 600 google-cloud.json
 npm install
