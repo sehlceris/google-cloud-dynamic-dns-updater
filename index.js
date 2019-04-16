@@ -16,12 +16,11 @@ async function main() {
     keyFileLocation,
     zoneName,
     dnsNames,
-    ttlStr,
+    ttl,
   } = config;
-  if (!projectId || !zoneName || !dnsNames || !ttlStr) throw new Error('config is missing some things!');
+  if (!projectId || !zoneName || !dnsNames || !ttl) throw new Error('config is missing some things!');
   const dnsNamesSet = new Set(dnsNames);
-  const ttl = parseInt(ttlStr, 10);
-  if (!Number.isFinite(ttl) || ttl < 10 || ttl > 86400) throw new Error(`invalid TTL ${ttlStr}`);
+  if (!Number.isFinite(ttl) || ttl < 10 || ttl > 86400) throw new Error(`invalid TTL ${ttl}`);
 
   // get external IP
   const externalIp = await getExternalIP();
