@@ -15,10 +15,13 @@ async function main() {
     projectId,
     keyFileLocation,
     zoneName,
-    dnsNames
+    dnsNames,
+    ttlStr,
   } = config;
-  if (!projectId || !zoneName || !dnsNames) throw new Error('config is missing some things!');
+  if (!projectId || !zoneName || !dnsNames || !ttlStr) throw new Error('config is missing some things!');
   const dnsNamesSet = new Set(dnsNames);
+  const ttl = parseInt(ttlStr, 10);
+  if (!Number.isFinite(ttl) || ttl < 10 || ttl > 86400) throw new Error(`invalid TTL ${ttlStr}`);
 
   // get external IP
   const externalIp = await getExternalIP();
@@ -38,9 +41,12 @@ async function main() {
   // find existing records that match the DNS names we want to set
   const recordsOfInterest = records.filter((record) => dnsNamesSet.has(record.name) && record.type === 'A');
 
-  // filter out records that already match our external IP (no need to modify them)
+  // filter out records that already match our external IP and TTL (no need to modify them)
   const recordsToModify = recordsOfInterest.filter((record) => {
-    if (record.data && record.data[0] && record.data[0] === externalIp) {
+    if (
+      record.data && record.data[0] && record.data[0] === externalIp
+      && record.metadata.ttl === ttl
+    ) {
       return false;
     }
     return true;
@@ -52,7 +58,7 @@ async function main() {
     return zone.record('a', {
       name: record.name,
       data: externalIp,
-      ttl: record.metadata.ttl,
+      ttl: ttl,
     });
   });
 
@@ -62,7 +68,7 @@ async function main() {
     return zone.record('a', {
       name: dnsName,
       data: externalIp,
-      ttl: 300
+      ttl: ttl
     });
   });
 

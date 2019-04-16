@@ -2,6 +2,7 @@
   "projectId": "smelly-cat-832298",
   "keyFileLocation": "google-cloud.json",
   "zoneName": "YOUR_ZONE_NAME",
+  "ttl": 1800,
   "dnsNames": [
     "mydomain.com.",
     "cloud.mydomain.com."
