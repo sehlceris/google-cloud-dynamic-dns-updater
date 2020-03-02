@@ -9,7 +9,6 @@ If you have a domain that has its name servers set to Google Cloud DNS, this scr
 - Needs node.js and npm
 - Requires you to drop a sensitive credentials file in the same directory as this script
 - I am not really going to maintain this, unless it benefits me, but you can fork or PR
-- I don't want to make this into a Docker image, but you can if you want to fork or PR
 
 ## setup
 
