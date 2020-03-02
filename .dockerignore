@@ -18,7 +18,6 @@ src/app/generated/
 
 # config and credentials
 .env
+secrets/
 config.json
 google-cloud.json
-*credentials*
-*account*

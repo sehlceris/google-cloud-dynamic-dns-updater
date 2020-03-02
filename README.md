@@ -35,8 +35,7 @@ Ensure that you have `google-cloud.json` and `config.json` handy.
 
 ```bash
 docker container run --rm \
-    -v "${PWD}/google-cloud.json:/usr/src/app/google-cloud.json" \
-    -v "${PWD}/config.json:/usr/src/app/config.json" \
+    -v "${PWD}/secrets:/usr/src/app/secrets" \
     sehlceris/google-cloud-dynamic-dns-updater:latest
 ```
 

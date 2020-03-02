@@ -10,7 +10,7 @@ async function main() {
   console.log(new Date().toISOString() + ' - updating dynamic dns entries');
 
   // read and parse config
-  const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
+  const config = JSON.parse(fs.readFileSync('./secrets/config.json', 'utf8'));
   const {
     projectId,
     keyFileLocation,
