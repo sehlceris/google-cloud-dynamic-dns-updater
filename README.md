@@ -34,6 +34,8 @@ Ensure that you have `secrets/google-cloud.json` and `secrets/config.json` ready
 ### running with docker
 
 ```bash
+dpocker pull sehlceris/google-cloud-dynamic-dns-updater
+
 docker container run --rm \
     -v "${PWD}/secrets:/usr/src/app/secrets" \
     sehlceris/google-cloud-dynamic-dns-updater:latest
