@@ -10,7 +10,7 @@
   "author": "sehlceris",
   "license": "MIT",
   "dependencies": {
-    "@google-cloud/dns": "^0.9.2",
+    "@google-cloud/dns": "^1.2.8",
     "external-ip": "^2.1.1"
   }
 }
