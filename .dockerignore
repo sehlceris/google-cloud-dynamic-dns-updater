@@ -18,9 +18,7 @@ src/app/generated/
 
 # config and credentials
 .env
-!package.json
-!package-lock.json
-!config.example.json
-*.json
+config.json
+google-cloud.json
 *credentials*
 *account*
