@@ -33,7 +33,7 @@ Ensure that you have `secrets/google-cloud.json` and `secrets/config.json` ready
 ### running with docker
 
 ```bash
-dpocker pull sehlceris/google-cloud-dynamic-dns-updater
+docker pull sehlceris/google-cloud-dynamic-dns-updater
 
 docker container run --rm \
     -v "${PWD}/secrets:/usr/src/app/secrets" \
@@ -68,8 +68,16 @@ mkdir -p ~/logs
 crontab -e
 ```
 
-This exampe cron job runs your script at 3:07AM every day and saves the log.
+This example cron job runs your script at 3:07AM every day and saves the log.
+
+##### node.js
 
 ```
-7 3 * * * npm start --prefix /home/donkey/apps/google-cloud-dynamic-dns-updater >> /home/donkey/logs/google-cloud-dynamic-dns-updater.log 2>&1
+7 3 * * * npm start --prefix /home/ubuntu/projects/google-cloud-dynamic-dns-updater >> /home/ubuntu/logs/google-cloud-dynamic-dns-updater.log 2>&1
+```
+
+##### docker-compose
+
+```
+7 3 * * * /usr/local/bin/docker-compose -f /home/ubuntu/projects/google-cloud-dynamic-dns-updater/docker-compose.yml up
 ```

@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  google-cloud-dynamic-dns-updater:
+    image: sehlceris/google-cloud-dynamic-dns-updater
+    volumes:
+      - ./secrets:/usr/src/app/secrets
